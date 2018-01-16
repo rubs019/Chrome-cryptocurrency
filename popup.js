@@ -184,7 +184,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const settings = {
       "async": true,
       "crossDomain": true,
-      "url": "http://localhost:3000/",
+      "url": "https://cryptocurrency-net.herokuapp.com/",
       "method": "GET",
       "headers": {}
     }
