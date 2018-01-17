@@ -34,6 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
             flashMessage('A new tabs was open !', 'orange')
         });
     });
+    
 });
 
 chrome.tabs.onCreated.addListener((cb) => {
@@ -43,6 +44,8 @@ chrome.tabs.onCreated.addListener((cb) => {
 function setItem(response) {
     list = document.getElementById('list');
     tab = $('#stats_tbody');
+
+    tab.empty();
 
     (response.map((res) => {
         tab.append('<tr>' +
