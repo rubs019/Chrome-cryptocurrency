@@ -1,0 +1,21 @@
+<div id="container">
+  <ul id="list">
+  </ul>
+  <table id="stats" class="table" *ngIf="cryptoItem">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Price (USD)</th>
+        <th scope="col">Price (BTC)</th>
+      </tr>
+    </thead>
+    <tbody id="stats_tbody" *ngFor="let crypto of cryptoItem">
+      <tr (click)="cryptoDetail(crypto)">
+      	<td>{{ crypto.name }}</td>
+      	<td class="text-primary">{{ crypto.price_usd }} ({{ crypto.symbol }})</td>
+      	<td>{{ crypto.price_btc }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <p *ngIf="!cryptoItem" class="text-center">En chargement...</p>
+</div>

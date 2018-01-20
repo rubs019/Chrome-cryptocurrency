@@ -1,0 +1,20 @@
+<div id="container">
+  <ul id="list">
+  </ul>
+  <table id="stats" class="table">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Price (USD)</th>
+        <th scope="col">Price (BTC)</th>
+      </tr>
+    </thead>
+    <tbody id="stats_tbody" *ngFor="let crypto of cryptoItem">
+      <tr>
+      	<td>{{ crypto.name }}</td>
+      	<td>{{ crypto.price_usd }}</td>
+      	<td>{{ crypto.price_btc }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

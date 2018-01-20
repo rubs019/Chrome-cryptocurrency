@@ -1,0 +1,16 @@
+{
+  "manifest_version": 2,
+
+  "name": "CryptoCurrency",
+  "description": "Live crypto currency extension for Chrome.",
+  "version": "0.1",
+
+  "browser_action": {
+    "default_icon": "favicon.png",
+    "default_popup": "index.html"
+  },
+  "permissions": [
+    "tabs"
+  ],
+  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'"
+}

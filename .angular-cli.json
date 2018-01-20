@@ -9,7 +9,8 @@
       "outDir": "dist",
       "assets": [
         "assets",
-        "favicon.ico"
+        "favicon.png",
+        "manifest.json"
       ],
       "index": "index.html",
       "main": "main.ts",
@@ -19,9 +20,16 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
-        "styles.css"
+        "styles.css",
+        "../node_modules/mdbootstrap/css/bootstrap.min.css",
+        "../node_modules/mdbootstrap/css/mdb.min.css"
       ],
-      "scripts": [],
+      "scripts": [
+        "../node_modules/mdbootstrap/js/bootstrap.min.js",
+        "../node_modules/mdbootstrap/js/jquery-3.2.1.min.js",
+        "../node_modules/mdbootstrap/js/popper.min.js",
+        "../node_modules/mdbootstrap/js/mdb.min.js"
+      ],
       "environmentSource": "environments/environment.ts",
       "environments": {
         "dev": "environments/environment.ts",

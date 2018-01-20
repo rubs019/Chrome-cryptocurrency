@@ -1,0 +1,36 @@
+#header {
+	width: 380px;
+	height: 120px;
+	padding: 10px;
+	float: right;
+}
+h1 {
+	font-size: 28px;
+	color: lightgray;
+}
+p {
+	color: gray;
+}
+
+#left-layout {
+	width: 200px;
+	height: 600px;
+	padding: 10px;
+	float: right;
+	position: absolute;
+}
+#right-layout {
+	width: 380px;
+	height: 480px;
+	float: right;
+    overflow: scroll;
+}
+
+#cassdedi {
+	position: absolute;
+	bottom: 0;
+}
+
+#header, #left-layout, #right-layout {
+	border: 1px solid #cfcfcf;
+}

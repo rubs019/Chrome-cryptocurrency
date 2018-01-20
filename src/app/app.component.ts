@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
+  cryptoId = null;
+
+  selectDetail(event) {
+  	console.log(event);
+  	this.cryptoId = event;
+  }
 }

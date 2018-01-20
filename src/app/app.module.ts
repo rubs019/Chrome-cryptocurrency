@@ -1,18 +1,38 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
+import { RouterModule, Routes } from '@angular/router';
 
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
+import { CryptoDetailComponent } from './crypto-detail/crypto-detail.component';
 
+import { HomeComponent } from './home/home.component';
+import { TablesComponent } from './home/tables/tables.component';
+import { SettingsComponent } from './home/settings/settings.component';
+
+import { ApiService } from './services/api.service';
+
+const appRoutes: Routes = [
+  { path: '', component: HomeComponent }
+];
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HomeComponent,
+    TablesComponent,
+    SettingsComponent,
+    CryptoDetailComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule,
+    RouterModule.forRoot(appRoutes),
+    NgbModule.forRoot()
   ],
-  providers: [],
+  providers: [ApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
