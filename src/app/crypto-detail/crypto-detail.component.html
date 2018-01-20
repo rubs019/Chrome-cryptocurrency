@@ -2,5 +2,5 @@
 	<img [src]='"https://files.coinmarketcap.com/static/img/coins/64x64/"+crypto.id+".png"'/>
 	<p>{{ crypto.name }}</p>
 	<p class="text-success">{{ crypto.price_usd }} USD</p>
-	<p>{{ crypto.percent_change_24h }} %</p>
+	<p [class]="crypto.percent_change_24h > 0 ? 'text-success' : 'text-danger'">{{ crypto.percent_change_24h }} %</p>
 </div>

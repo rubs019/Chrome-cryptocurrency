@@ -24,6 +24,9 @@ p {
 	height: 480px;
 	float: right;
     overflow: scroll;
+
+    
+	background-color: #f1f1f166;
 }
 
 #cassdedi {
