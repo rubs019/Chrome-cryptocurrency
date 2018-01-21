@@ -31,7 +31,34 @@
   [columnMode]="'standard'"
   [selectionType]="'single'"
   (select)='cryptoDetail($event)'>
-     <ngx-datatable-column name="Name">
+
+      <ngx-datatable-column name="Name">
+        <ng-template let-column="column" ngx-datatable-header-template>
+          {{column.name}}
+        </ng-template>
+        <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+          <img [src]='"https://files.coinmarketcap.com/static/img/coins/16x16/"+row.id+".png"'/> <strong>{{value}}</strong>
+        </ng-template>
+      </ngx-datatable-column>
+
+      <ngx-datatable-column prop="price_usd" name="Price (USD)">
+        <ng-template let-value="value" ngx-datatable-cell-template>
+          <i>{{ value }}</i>
+        </ng-template>
+      </ngx-datatable-column>
+
+      <ngx-datatable-column prop="percent_change_24h" name="24H">
+        <ng-template let-value="value" ngx-datatable-cell-template>
+          <i [class]="value > 0 ? 'text-success' : 'text-danger'"> {{value}}%</i>
+        </ng-template>
+      </ngx-datatable-column>
+  </ngx-datatable>
+
+
+  <p *ngIf="!cryptoItem" class="text-center">En chargement...</p>
+</div>
+
+<!-- <ngx-datatable-column name="Name">
         <ng-template let-row="row" ngx-datatable-row-detail-template>
           {{row}}
         </ng-template>
@@ -41,11 +68,8 @@
           {{value}}
         </ng-template>
       </ngx-datatable-column>
-      <ngx-datatable-column class="is-positive" [cellClass]="getCellClass" prop="percent_change_24h" name="24H">
-        <ng-template class="is-positive"  let-value="value" ngx-datatable-cell-template>
+      <ngx-datatable-column prop="percent_change_24h" name="24H">
+        <ng-template let-value="value" ngx-datatable-cell-template>
           {{value}}
         </ng-template>
-      </ngx-datatable-column>
-  </ngx-datatable>
-  <p *ngIf="!cryptoItem" class="text-center">En chargement...</p>
-</div>
+      </ngx-datatable-column> -->
