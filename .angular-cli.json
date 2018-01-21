@@ -22,7 +22,10 @@
       "styles": [
         "styles.css",
         "../node_modules/mdbootstrap/css/bootstrap.min.css",
-        "../node_modules/mdbootstrap/css/mdb.min.css"
+        "../node_modules/mdbootstrap/css/mdb.min.css",
+        "../node_modules/@swimlane/ngx-datatable/release/index.css",
+        "../node_modules/@swimlane/ngx-datatable/release/themes/material.css",
+        "../node_modules/@swimlane/ngx-datatable/release/assets/icons.css"
       ],
       "scripts": [
         "../node_modules/mdbootstrap/js/bootstrap.min.js",

@@ -45,4 +45,11 @@ export class TablesComponent implements OnInit {
     // console.log('Activate Event', event);
   }
 
+  getCellClass({ row, column, value }): any {
+    console.log(value);
+    return {
+      'is-negative': value === 'female'
+    };
+  }
+
 }

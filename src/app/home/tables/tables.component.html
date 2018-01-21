@@ -19,16 +19,21 @@
       </tr>
     </tbody>
   </table> -->
-  <ngx-datatable 
+  <ngx-datatable  *ngIf="cryptoItem !== null"
   [rows]="cryptoItem" 
   class="material"
+  [rowClass]="getRowClass"
+  [count]="cryptoItem.length"
+  [limit]="15"
   [selected]="selected"
-  [columnMode]="'force'"
+  [headerHeight]="50"
+  [footerHeight]="50"
+  [columnMode]="'standard'"
   [selectionType]="'single'"
   (select)='cryptoDetail($event)'>
      <ngx-datatable-column name="Name">
-        <ng-template let-value="value" ngx-datatable-cell-template>
-          {{value}}
+        <ng-template let-row="row" ngx-datatable-row-detail-template>
+          {{row}}
         </ng-template>
       </ngx-datatable-column>
       <ngx-datatable-column prop="price_usd" name="Price (USD)">
@@ -36,8 +41,8 @@
           {{value}}
         </ng-template>
       </ngx-datatable-column>
-      <ngx-datatable-column prop="percent_change_24h" name="24H">
-        <ng-template let-value="value" ngx-datatable-cell-template>
+      <ngx-datatable-column class="is-positive" [cellClass]="getCellClass" prop="percent_change_24h" name="24H">
+        <ng-template class="is-positive"  let-value="value" ngx-datatable-cell-template>
           {{value}}
         </ng-template>
       </ngx-datatable-column>
