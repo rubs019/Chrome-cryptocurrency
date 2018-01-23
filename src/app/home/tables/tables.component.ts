@@ -19,30 +19,31 @@ export class TablesComponent implements OnInit {
     selected = [];
 
   	ngOnInit() {
-      this.getCrypto(100, 'EUR').then((result) => {
-        this.cryptoItem = result
-        console.log(this.cryptoItem);
+      this.getCrypto(100, 'EUR')
+      .then((result) => {
+        this.cryptoItem = result;
       });
   	}
 
-  	getCrypto(limit, convert) {
+  	// This promise will return all data defined by params
+    // limit:int max return (def: 10)
+    // convert:string type of conversion (def: 'EUR')
+    getCrypto(limit: number, convert: string) {
   		return new Promise(resolve => {
-        this.api.get(limit, convert).subscribe((cryptos: any) => {
-    			let cryptosClean = cryptos.map((crypto: any) => {
+        this.api.get(limit, convert)
+        .subscribe((cryptos: any) => {
+    			let cryptosConverted = cryptos.map((crypto: any) => {
             crypto.percent_change_24h = parseFloat(crypto.percent_change_24h);
             return crypto;
           })
-          resolve(cryptosClean);
+          resolve(cryptosConverted);
     		});
       });
   	}
 
-	cryptoDetail(crypto) {
+  // Emit the data to the parent  
+	onSelect(crypto) {
     this.onClick.emit(crypto.selected[0]);
 	}
-
-  onActivate(event) {
-    // console.log('Activate Event', event);
-  }
 
 }

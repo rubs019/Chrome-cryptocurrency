@@ -12,6 +12,4 @@ export class CryptoDetailComponent implements OnInit {
 
 	@Input() crypto: any = null;
 
-
-
 }

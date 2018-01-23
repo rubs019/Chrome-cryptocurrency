@@ -1,0 +1,20 @@
+li {
+    font-size: .8em;
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+}
+
+ul {
+    margin: 0px;
+    padding: 0;
+}
+
+li span {
+    font-weight: 500;
+}
+
+.header p.title {
+    font-weight: lighter;
+    font-size: 1.6em;
+}

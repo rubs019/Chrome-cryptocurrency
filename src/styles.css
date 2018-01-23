@@ -2,9 +2,11 @@
 
 body {
   width: 580px;
+  height: 480px;
   min-height: 480px;
 }
-
-.is-positive {
-	color: green;
+app-root {
+	display: block;
+	width: 100%;
+	height: 100%;
 }

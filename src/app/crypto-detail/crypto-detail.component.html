@@ -1,6 +1,27 @@
 <div *ngIf='crypto' class='text-center'>
-	<img [src]='"https://files.coinmarketcap.com/static/img/coins/64x64/"+crypto.id+".png"'/>
-	<p>{{ crypto.name }}</p>
-	<p class="text-success">{{ crypto.price_usd }} USD</p>
-	<p [class]="crypto.percent_change_24h > 0 ? 'text-success' : 'text-danger'">{{ crypto.percent_change_24h }} %</p>
+	<div class="header">
+		<img [src]='"https://files.coinmarketcap.com/static/img/coins/64x64/"+crypto.id+".png"'/>
+		<p class="title text-primary">{{ crypto.name }}</p>
+		<p class="text-success">{{ crypto.price_usd | currency:'USD':'symbol':'2.2-9' }} USD</p>
+		<div>
+			<i [class]="crypto.percent_change_24h > 0 ? 'mi mi-arrow-drop-up mi-36' : 'mi mi-arrow-drop-down mi-36'"></i>
+			<span [class]="crypto.percent_change_24h > 0 ? 'text-success' : 'text-danger'">
+			{{ crypto.percent_change_24h }} %</span>	
+		</div>
+	</div>
+	<div class="body">
+		<ul>
+			<li>Percent change 1H : 
+				<span [class]="crypto.percent_change_1h > 0 ? 'text-success' : 'text-danger'">{{ crypto.percent_change_1h }}</span>
+			</li>
+
+			<li>Percent change 24H : 
+				<span [class]="crypto.percent_change_24h > 0 ? 'text-success' : 'text-danger'">{{ crypto.percent_change_24h }}</span>
+			</li>
+
+			<li>Percent change 7d : 
+				<span [class]="crypto.percent_change_7d > 0 ? 'text-success' : 'text-danger'">{{ crypto.percent_change_7d }}</span>
+			</li>
+		</ul>
+	</div>
 </div>
