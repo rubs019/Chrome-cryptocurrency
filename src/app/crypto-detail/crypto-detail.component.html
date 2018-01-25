@@ -1,15 +1,14 @@
 <div *ngIf='crypto' class='text-center'>
 	<div class="header">
 		<img [src]='"https://files.coinmarketcap.com/static/img/coins/64x64/"+crypto.id+".png"'/>
-		<p class="title text-primary">{{ crypto.name }}</p>
+		<p class="title text-white">{{ crypto.name }}</p>
 		<p class="text-success">{{ crypto.price_usd | currency:'USD':'symbol':'2.2-9' }} USD</p>
-		<div>
+		<div [class]="crypto.percent_change_24h > 0 ? 'text-success' : 'text-danger'" id="details">
 			<i [class]="crypto.percent_change_24h > 0 ? 'mi mi-arrow-drop-up mi-36' : 'mi mi-arrow-drop-down mi-36'"></i>
-			<span [class]="crypto.percent_change_24h > 0 ? 'text-success' : 'text-danger'">
-			{{ crypto.percent_change_24h }} %</span>	
+			<span>{{ crypto.percent_change_24h }} %</span>	
 		</div>
 	</div>
-	<div class="body">
+	<div class="body text-white">
 		<ul>
 			<li>Percent change 1H : 
 				<span [class]="crypto.percent_change_1h > 0 ? 'text-success' : 'text-danger'">{{ crypto.percent_change_1h }}</span>
@@ -23,5 +22,6 @@
 				<span [class]="crypto.percent_change_7d > 0 ? 'text-success' : 'text-danger'">{{ crypto.percent_change_7d }}</span>
 			</li>
 		</ul>
+		<button class="goto btn btn-primary" (click)="goToCurrency(crypto.id)">More...</button>
 	</div>
 </div>

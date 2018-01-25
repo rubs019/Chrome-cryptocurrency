@@ -9,20 +9,18 @@ import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { AppComponent } from './app.component';
 import { CryptoDetailComponent } from './crypto-detail/crypto-detail.component';
 
-import { HomeComponent } from './home/home.component';
 import { TablesComponent } from './home/tables/tables.component';
 import { SettingsComponent } from './home/settings/settings.component';
 
 import { ApiService } from './services/api.service';
 
 const appRoutes: Routes = [
-  { path: '', component: HomeComponent }
+  { path: '', component: AppComponent }
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
     TablesComponent,
     SettingsComponent,
     CryptoDetailComponent

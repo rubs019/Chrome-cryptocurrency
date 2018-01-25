@@ -15,6 +15,14 @@ li span {
 }
 
 .header p.title {
-    font-weight: lighter;
+    font-weight: bold;
     font-size: 1.6em;
+}
+#details {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.goto {
+    margin-top: 8em; 
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+declare var chrome: any;
 
 @Component({
   selector: 'app-crypto-detail',
@@ -11,5 +12,11 @@ export class CryptoDetailComponent implements OnInit {
 	ngOnInit() {}
 
 	@Input() crypto: any = null;
+
+	goToCurrency(id) {
+		chrome.tabs.create({
+			url: 'https://coinmarketcap.com/currencies/' + id
+		})
+	}
 
 }

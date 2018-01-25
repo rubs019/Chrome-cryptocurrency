@@ -1,20 +1,17 @@
 <div id="container">
-  <ul id="list">
-  </ul>
   <ngx-datatable  
   class="material"
   *ngIf="cryptoItem !== null"
   [rows]="cryptoItem" 
   [rowClass]="getRowClass"
   [count]="cryptoItem.length"
-  [limit]="15"
+  [limit]="9"
   [selected]="selected"
   [headerHeight]="50"
   [footerHeight]="50"
   [columnMode]="'standard'"
   [selectionType]="'single'"
   (select)='onSelect($event)'>
-
       <ngx-datatable-column name="Name">
         <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
           <div class="name">
