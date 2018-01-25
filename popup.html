@@ -1,0 +1,46 @@
+<!doctype html>
+<!--
+ This page is shown when the extension button is clicked, because the
+ "browser_action" field in manifest.json contains the "default_popup" key with
+ value "popup.html".
+ -->
+<html>
+  <head>
+    <title>Chrome-Cryptocurrency | Live crypto currency extension for Chrome.</title>
+    <link rel="stylesheet" type="text/css" href="./popup.css">
+    <!--
+      - JavaScript and HTML must be in separate files: see our Content Security
+      - Policy documentation[1] for details and explanation.
+      -
+      - [1]: https://developer.chrome.com/extensions/contentSecurityPolicy
+    -->
+    <script src="./assets/jquery-3.2.1.min.js"></script>
+    <script type="json" src="crypto.json"></script>
+    <script src="popup.js"></script>
+  </head>
+
+  <body>
+    <header>
+        <h1>Crypto Jesus</h1>
+        <p>Get instant-realtime crypto value</p>
+        <span id="flashMessage"></span>
+    </header>
+    <div id="container">
+      <ul id="list">
+      </ul>
+      <table id="stats">
+        <thead>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Price (USD)</th>
+            <th scope="col">Price (BTC)</th>
+          </tr>
+        </thead>
+        <tbody id="stats_tbody">
+          <tr><td>Loading data...</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p id="cassdedi">Created By Rubz</p>
+  </body>
+</html>
