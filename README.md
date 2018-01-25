@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # CryptoNG
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.4.
@@ -36,4 +35,3 @@ Click Load unpacked extension… to pop up a file-selection dialog.
 Navigate to the directory in which your extension files live, and select it.
 
 Alternatively, you can drag and drop the directory where your extension files live onto chrome://extensions in your browser to load it.
->>>>>>> 5ce2d2dbbf20fc8c5dee26c519a2dd2ad75b25c5
