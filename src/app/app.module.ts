@@ -10,7 +10,6 @@ import { AppComponent } from './app.component';
 import { CryptoDetailComponent } from './crypto-detail/crypto-detail.component';
 
 import { TablesComponent } from './home/tables/tables.component';
-import { SettingsComponent } from './home/settings/settings.component';
 
 import { ApiService } from './services/api.service';
 
@@ -22,7 +21,6 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     TablesComponent,
-    SettingsComponent,
     CryptoDetailComponent
   ],
   imports: [

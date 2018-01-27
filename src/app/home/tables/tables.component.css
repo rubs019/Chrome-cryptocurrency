@@ -1,3 +1,7 @@
 .name {
     margin-left: 15px;
 }
+
+.ngx-datatable.material {
+	box-shadow: none;
+}

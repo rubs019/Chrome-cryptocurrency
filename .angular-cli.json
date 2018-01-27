@@ -22,7 +22,6 @@
       "styles": [
         "styles.css",
         "../node_modules/mdbootstrap/css/bootstrap.min.css",
-        "../node_modules/mdbootstrap/css/mdb.min.css",
         "../node_modules/@swimlane/ngx-datatable/release/index.css",
         "../node_modules/@swimlane/ngx-datatable/release/themes/material.css",
         "../node_modules/@swimlane/ngx-datatable/release/assets/icons.css",
@@ -31,8 +30,7 @@
       "scripts": [
         "../node_modules/mdbootstrap/js/bootstrap.min.js",
         "../node_modules/mdbootstrap/js/jquery-3.2.1.min.js",
-        "../node_modules/mdbootstrap/js/popper.min.js",
-        "../node_modules/mdbootstrap/js/mdb.min.js"
+        "../node_modules/mdbootstrap/js/popper.min.js"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {

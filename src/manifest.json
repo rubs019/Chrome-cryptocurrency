@@ -3,7 +3,9 @@
 
   "name": "Chrome-Crypto",
   "description": "Live crypto currency extension for Chrome.",
-  "version": "0.0.1",
+  "version": "0.0.1.1",
+
+  "author": "Ruben DESERT",
 
   "browser_action": {
     "default_icon": "icon.png",

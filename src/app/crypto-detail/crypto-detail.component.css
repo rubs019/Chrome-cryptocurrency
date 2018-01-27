@@ -6,7 +6,7 @@ li {
 }
 
 ul {
-    margin: 0px;
+    margin: 0;
     padding: 0;
 }
 
@@ -16,7 +16,7 @@ li span {
 
 .header p.title {
     font-weight: bold;
-    font-size: 1.6em;
+    font-size: 1.2em;
 }
 #details {
     display: flex;
