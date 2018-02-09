@@ -1,3 +1,5 @@
-<p>
-  settings works!
-</p>
+<form action="">
+  <select class="form-control" #language (change)="onSelect(language.value)" >
+    <option *ngFor="let lang of languageList" [value]="lang">{{ lang }}</option>
+  </select>
+</form>

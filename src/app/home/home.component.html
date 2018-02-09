@@ -1,13 +1,14 @@
-<ngb-tabset type="pills">
-  <ngb-tab title="Currency">
-    <ng-template ngbTabContent>
-      <app-tables></app-tables>
-    </ng-template>
-  </ngb-tab>
-  <ngb-tab>
-    <ng-template ngbTabTitle><b>Settings</b></ng-template>
-    <ng-template ngbTabContent>
-      <app-settings></app-settings>  
-    </ng-template>
-  </ngb-tab>
-</ngb-tabset>
+<div id="container">
+  <div id="header" class="text-center">
+    <h1>ChromeCrypto</h1>
+    <p>Get instant-realtime crypto value</p>
+    <app-settings (onSelectLang)="changeCurrency($event)"></app-settings>
+  </div>
+  <div id="right-layout">
+    <app-tables (onClick)=selectDetail($event)></app-tables>
+  </div>
+  <div id="left-layout" class="text-white">
+    <app-crypto-detail [crypto]="cryptoId"></app-crypto-detail>
+  </div>
+  <div id="cassdedi" class="text-center text-white">Created By Rubz</div>
+</div>

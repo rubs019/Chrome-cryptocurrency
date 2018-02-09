@@ -13,9 +13,10 @@ import { TablesComponent } from './home/tables/tables.component';
 import { SettingsComponent } from './home/settings/settings.component';
 
 import { ApiService } from './services/api.service';
+import { HomeComponent } from './home/home.component';
 
 const appRoutes: Routes = [
-  { path: '', component: AppComponent }
+  { path: '', component: HomeComponent }
 ];
 
 @NgModule({
@@ -23,7 +24,9 @@ const appRoutes: Routes = [
     AppComponent,
     TablesComponent,
     SettingsComponent,
-    CryptoDetailComponent
+    CryptoDetailComponent,
+    SettingsComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

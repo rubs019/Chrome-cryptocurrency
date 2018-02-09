@@ -1,3 +1,21 @@
 .name {
     margin-left: 15px;
 }
+datatable-row-wrapper.datatable-row-wrapper {
+  line-height: 0;
+  background-color: red !important;
+}
+
+.test {
+  text-align: left;
+  padding: O;
+  vertical-align: top;
+  border-top: 0;
+  color: rgba(0, 0, 0, 0.87);
+  -webkit-transition: width 0.3s ease;
+  transition: width 0.3s ease;
+  font-size: 14px;
+  line-height: 30px;
+  font-weight: 400;
+  cursor: pointer;
+}
