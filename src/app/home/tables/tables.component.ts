@@ -49,13 +49,10 @@ export class TablesComponent implements OnInit {
   }
 
   public getCrypto2(limit: number, convert: string) {
-    console.log('getCrypto2 ------------------------');
     this.prop = 'price_' + this._currencyFormat.toLowerCase();
-    console.log('this.currencyFormat', this.currencyFormat)
     this.loadingIndicator = true;
     this.api.get(convert, limit)
       .subscribe((cryptos: any) => {
-        console.log('I receveid all crypto', new Date());
         const cryptoMap = cryptos.map(async (crypto: any) => {
           crypto.percent_change_24h = parseFloat(crypto.percent_change_24h);
           crypto.price_usd = crypto[this.prop];
@@ -65,8 +62,6 @@ export class TablesComponent implements OnInit {
 
         Promise.all(cryptoMap).then((completed) => {
           this.cryptoItem = cryptos;
-          console.log('this._currencyFormat.toLowerCase()', this._currencyFormat.toLowerCase());
-          console.log(this.cryptoItem);
           console.log('ended');
           this.loadingIndicator = false;
           return true;
