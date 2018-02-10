@@ -1,6 +1,6 @@
 <div id="container">
   <ngx-datatable
-  class="material test"
+  class="material"
   *ngIf="cryptoItem !== null"
   [rows]="cryptoItem"
   [count]="cryptoItem.length"
@@ -12,24 +12,26 @@
   [selectionType]="'single'"
   [loadingIndicator]="loadingIndicator"
   (select)='onSelect($event)'>
-      <ngx-datatable-column name="Name" [cellClass]="getCellClass">
+      <ngx-datatable-column prop="name" name="Name" [cellClass]="getCellClass">
         <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
-          <div class="name">
+          <div class="content name">
             <img [src]='"https://files.coinmarketcap.com/static/img/coins/16x16/"+row.id+".png"'/>
             <span>{{value}}</span>
           </div>
         </ng-template>
       </ngx-datatable-column>
 
-      <ngx-datatable-column [prop]="prop" name="Price ({{ currencyFormat }})" [cellClass]="getCellClass">
+      <ngx-datatable-column prop="price_usd" name="Price" [cellClass]="getCellClass">
         <ng-template let-value="value" ngx-datatable-cell-template>
-          <span>{{ value | currency: currencyFormat :'symbol':'2.2-9' }}</span>
+          <div class="content">
+            <span>{{ value | currency: _currencyFormat.toUpperCase(): 'symbol':'4.2-2' }}</span>
+          </div>
         </ng-template>
       </ngx-datatable-column>
 
       <ngx-datatable-column prop="percent_change_24h" name="24H" [cellClass]="getCellClass">
         <ng-template let-value="value" ngx-datatable-cell-template>
-          <div [class]="value > 0 ? 'text-success' : 'text-danger'">
+          <div [class]="value > 0 ? 'text-success' : 'text-danger' + ' content'">
             <i [class]="value > 0 ? 'mi mi-arrow-drop-up' : 'mi mi-arrow-drop-down'"></i>
             <i> {{value}}%</i>
           </div>

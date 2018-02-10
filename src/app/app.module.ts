@@ -14,6 +14,7 @@ import { SettingsComponent } from './home/settings/settings.component';
 
 import { ApiService } from './services/api.service';
 import { HomeComponent } from './home/home.component';
+import {StorageService} from './services/storage.service';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent }
@@ -35,7 +36,10 @@ const appRoutes: Routes = [
     NgbModule.forRoot(),
     NgxDatatableModule
   ],
-  providers: [ApiService],
+  providers: [
+    ApiService,
+    StorageService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

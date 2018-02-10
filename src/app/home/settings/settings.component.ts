@@ -1,5 +1,5 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import { ApiService } from '../../services/api.service';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import {StorageService} from '../../services/storage.service';
 
 @Component({
   selector: 'app-settings',
@@ -8,19 +8,22 @@ import { ApiService } from '../../services/api.service';
 })
 export class SettingsComponent implements OnInit {
 
-  constructor(private apiService: ApiService) { }
+  constructor(private storage: StorageService) { }
 
   @Output() onSelectLang = new EventEmitter();
+  langDefault: string = null;
 
   languageList: any = [
     'AUD', 'BRL', 'CAD', 'CHF', 'CLP', 'CNY', 'CZK', 'DKK', 'EUR', 'GBP', 'HKD', 'HUF', 'IDR',
     'ILS', 'INR', 'JPY', 'KRW', 'MXN', 'MYR', 'NOK', 'NZD', 'PHP', 'PKR',
-    'PLN', 'RUB', 'SEK', 'SGD', 'THB', 'TRY', 'TWD', 'ZAR'];
+    'PLN', 'RUB', 'SEK', 'SGD', 'THB', 'TRY', 'TWD', 'ZAR', 'USD'].sort();
 
   ngOnInit() {
+    this.langDefault = this.storage.langSelect;
   }
 
   onSelect(lang: string) {
+    console.log('onSelect from Settings');
     this.onSelectLang.emit(lang.toLowerCase());
   }
 

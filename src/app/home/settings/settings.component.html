@@ -1,5 +1,12 @@
 <form action="">
-  <select class="form-control" #language (change)="onSelect(language.value)" >
-    <option *ngFor="let lang of languageList" [value]="lang">{{ lang }}</option>
-  </select>
+  <div class="input-group mb-3">
+    <select
+      *ngIf="langDefault !== null"
+      class="custom-select"
+      id="inputGroupSelect01"
+      #language
+      (change)="onSelect(language.value)">
+      <option *ngFor="let lang of languageList" [selected]="lang === langDefault ? lang : null" [value]="lang">{{ lang }}</option>
+    </select>
+  </div>
 </form>
