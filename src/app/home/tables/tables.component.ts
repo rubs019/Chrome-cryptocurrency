@@ -23,10 +23,12 @@ export class TablesComponent implements OnInit {
   selected = [];
 
   ngOnInit() {
-    this.currencyFormat = this.storage.langSelect;
-    this.prop = 'price_' + this._currencyFormat.toLowerCase();
-    console.log('this.currencyFormat | tables : ', this.currencyFormat);
-    this.getCrypto2(100, this._currencyFormat);
+    this.storage.langSelect.then((result: any) => {
+      this.currencyFormat = result.lang;
+      this.prop = 'price_' + this._currencyFormat.toLowerCase();
+      console.log('this.currencyFormat | tables : ', this.currencyFormat);
+      this.getCrypto2(100, this._currencyFormat);
+    });
   }
 
   // This promise will return all data defined by params
@@ -86,7 +88,7 @@ export class TablesComponent implements OnInit {
   }
 
   getCellClass() {
-    return ' changeCss';
+    return 'changeCss';
   }
 
 }
