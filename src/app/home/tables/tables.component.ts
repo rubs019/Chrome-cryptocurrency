@@ -18,6 +18,9 @@ export class TablesComponent implements OnInit {
   private _currencyFormat: string;
   public prop: string;
   loadingIndicator = true;
+  messages = {
+    emptyMessage: 'Sorry, but we can\'t retrieve all informations, please restart the applications.'
+  };
   @Output() onClick = new EventEmitter<boolean>();
   tabs = 'color: white';
   selected = [];
@@ -26,7 +29,7 @@ export class TablesComponent implements OnInit {
     this.storage.langSelect.then((result: any) => {
       this.currencyFormat = result.lang;
       this.prop = 'price_' + this._currencyFormat.toLowerCase();
-      console.log('this.currencyFormat | tables : ', this.currencyFormat);
+      console.log('this.getCrypto2(100, this._currencyFormat)', this.getCrypto2(100, this._currencyFormat));
       this.getCrypto2(100, this._currencyFormat);
     });
   }
@@ -62,10 +65,13 @@ export class TablesComponent implements OnInit {
 
         Promise.all(cryptoMap).then((completed) => {
           this.cryptoItem = cryptos;
-          console.log('ended');
           this.loadingIndicator = false;
           return true;
         });
+      }, error2 => {
+        console.log(error2);
+        this.loadingIndicator = false;
+        this.cryptoItem = [];
       });
   }
 
