@@ -1,13 +1,1 @@
-<div id="container">
-	<div id="header" class="text-center">
-		<h1>ChromeCrypto</h1>
-		<p>Get instant-realtime crypto value</p>
-	</div>
-	<div id="right-layout">
-		<app-tables (onClick)=selectDetail($event)></app-tables>
-	</div>
-	<div id="left-layout" class="text-white">
-		<app-crypto-detail [crypto]=cryptoId></app-crypto-detail>
-		<div id="cassdedi" class="text-center text-white">Created By Rubz</div>
-	</div>
-</div>
+<router-outlet></router-outlet>

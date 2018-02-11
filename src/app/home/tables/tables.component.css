@@ -1,7 +1,32 @@
 .name {
     margin-left: 15px;
 }
+datatable-row-wrapper.datatable-row-wrapper {
+  line-height: 0;
+  background-color: red !important;
+}
+.content {
+  cursor: pointer !important;
+}
+.changeCss[_ngcontent-c3] {
+  text-align: left;
+  padding: 0;
+  vertical-align: top;
+  border-top: 0;
+  color: rgba(0, 0, 0, 0.87);
+  -webkit-transition: width 0.3s ease;
+  transition: width 0.3s ease;
+  font-size: 19px;
+  line-height: 30px;
+  font-weight: 400;
+  cursor: pointer !important;
+  background-color: red;
+}
 
-.ngx-datatable.material {
-	box-shadow: none;
+.changeCss span {
+  cursor: pointer !important;
+}
+
+.datatable-row-center datatable-row-group {
+
 }

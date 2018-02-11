@@ -1,15 +1,15 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import {environment} from '../../environments/environment';
 
 @Injectable()
 export class ApiService {
+  private apiUrl = environment.apiUrl;
 
-  constructor(
-  	private http:HttpClient
-  	) { }
+  constructor(private http: HttpClient) { }
 
-  get(limit = 10, convert = 'USD') {
-  	return this.http.get('https://cryptocurrency-net.herokuapp.com?limit=' + limit + '&convert=' + convert)
+  get(convert: String = 'USD', limit: Number = 100) {
+    return this.http.get(this.apiUrl + '?limit=' + limit + '&convert=' + convert);
   }
 
 }

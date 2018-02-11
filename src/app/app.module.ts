@@ -12,16 +12,21 @@ import { CryptoDetailComponent } from './crypto-detail/crypto-detail.component';
 import { TablesComponent } from './home/tables/tables.component';
 
 import { ApiService } from './services/api.service';
+import { HomeComponent } from './home/home.component';
+import { StorageService } from './services/storage.service';
 
 const appRoutes: Routes = [
-  { path: '', component: AppComponent }
+  { path: '', component: HomeComponent }
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
     TablesComponent,
-    CryptoDetailComponent
+    SettingsComponent,
+    CryptoDetailComponent,
+    SettingsComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +35,10 @@ const appRoutes: Routes = [
     NgbModule.forRoot(),
     NgxDatatableModule
   ],
-  providers: [ApiService],
+  providers: [
+    ApiService,
+    StorageService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
