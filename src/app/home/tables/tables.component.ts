@@ -14,70 +14,57 @@ export class TablesComponent implements OnInit {
     private storage: StorageService) { }
 
 
-  cryptoItem = [];
-  private _currencyFormat: string;
-  public prop: string;
+  public cryptoItem = []; // The list of all crypto data will be stocked in this variables
+  private _currencyFormat: string; // The currencyFormat can be 'USD', 'EUR', 'GBP' etc...
+  public price_currency: string; // The format of item as to be selected in JSON can be 'price_usd', 'price_eur', 'price_gbp' and more...
   loadingIndicator = true;
   messages = {
     emptyMessage: 'Sorry, but we can\'t retrieve all informations, please restart the applications.'
-  };
-  @Output() onClick = new EventEmitter<boolean>();
-  tabs = 'color: white';
-  selected = [];
+  }; // Message to be display if cryptoItem is not received
+  @Output() onCryptoEmit = new EventEmitter<boolean>(); // Event triggered when user select a crypto item in datatable
+  selectedCrypto = []; // Stock the data in this variable, when user select an item in datatable
 
   ngOnInit() {
-    this.storage.langSelect.then((result: any) => {
-      this.currencyFormat = result.lang;
-      this.prop = 'price_' + this._currencyFormat.toLowerCase();
-      console.log('this.getCrypto2(100, this._currencyFormat)', this.getCrypto2(100, this._currencyFormat));
+
+    /**
+     * This function get the lang parameters from localStorage and set the settings needed.
+     */
+    this.storage.langSelect.then((localStorage: any) => {
+      this.currencyFormat = localStorage.lang;
+
       this.getCrypto2(100, this._currencyFormat);
     });
   }
 
-  // This promise will return all data defined by params
-  // limit:int max return (def: 10)
-  // convert:string type of conversion (def: 'EUR')
-  public getCrypto(limit: number, convert: string) {
-    return new Promise(resolve => {
-      this.api.get(convert, limit)
-      .subscribe((cryptos: any) => {
-        const cryptosConverted = cryptos.map((crypto: any) => {
-          crypto.percent_change_24h = parseFloat(crypto.percent_change_24h);
-          return crypto;
-        });
-        this.loadingIndicator = false;
-        resolve(cryptosConverted);
-      });
-    });
-  }
-
+  /** This promise will return all data defined by params
+  limit:int max return (def: 10)
+  convert:string type of conversion (def: 'EUR')*/
   public getCrypto2(limit: number, convert: string) {
-    this.prop = 'price_' + this._currencyFormat.toLowerCase();
+    this.price_currency = 'price_' + this._currencyFormat.toLowerCase();
     this.loadingIndicator = true;
     this.api.get(convert, limit)
       .subscribe((cryptos: any) => {
-        const cryptoMap = cryptos.map(async (crypto: any) => {
-          crypto.percent_change_24h = parseFloat(crypto.percent_change_24h);
-          crypto.price_usd = crypto[this.prop];
-          crypto.currency = this._currencyFormat;
-          return crypto;
-        });
+        const cryptoMap = cryptos.map(
+          async (crypto: any) => {
+            crypto.percent_change_24h = parseFloat(crypto.percent_change_24h);
+            crypto.price_usd = crypto[this.price_currency];
+            crypto.currency = this._currencyFormat;
+          }
+        );
 
-        Promise.all(cryptoMap).then((completed) => {
-          this.cryptoItem = cryptos;
-          this.loadingIndicator = false;
-          return true;
-        });
-      }, error2 => {
-        console.log(error2);
+        Promise.all(cryptoMap)
+          .then(() => this.cryptoItem = cryptos)
+          .catch(() => this.cryptoItem = []);
+
+      }, (error) => {
+        console.error(error);
         this.loadingIndicator = false;
-        this.cryptoItem = [];
-      });
+      }, () => this.loadingIndicator = false);
   }
 
   // Emit the data to the parent
   onSelect(crypto: any) {
-    this.onClick.emit(crypto.selected[0]);
+    this.onCryptoEmit.emit(crypto.selected[0]);
   }
 
   get currencyFormat(): any {

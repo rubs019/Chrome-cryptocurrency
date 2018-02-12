@@ -5,9 +5,9 @@
   [rows]="cryptoItem"
   [count]="cryptoItem.length"
   [limit]="9"
-  [selected]="selected"
-  [headerHeight]="50"
-  [footerHeight]="50"
+  [selected]="selectedCrypto"
+  [headerHeight]="40"
+  [footerHeight]="60"
   [columnMode]="'force'"
   [selectionType]="'single'"
   [loadingIndicator]="loadingIndicator"
@@ -32,7 +32,7 @@
 
       <ngx-datatable-column prop="percent_change_24h" name="24H" [cellClass]="getCellClass">
         <ng-template let-value="value" ngx-datatable-cell-template>
-          <div [class]="value > 0 ? 'text-success' : 'text-danger' + ' content'">
+          <div [class]="value > 0 ? 'alert alert-success' : 'alert alert-danger' + ' content'">
             <i [class]="value > 0 ? 'mi mi-arrow-drop-up' : 'mi mi-arrow-drop-down'"></i>
             <i> {{value}}%</i>
           </div>
@@ -40,7 +40,6 @@
       </ngx-datatable-column>
 
   </ngx-datatable>
-
 
   <p *ngIf="!cryptoItem" class="text-center">En chargement...</p>
 </div>

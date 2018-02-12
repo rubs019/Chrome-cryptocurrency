@@ -27,6 +27,9 @@ datatable-row-wrapper.datatable-row-wrapper {
   cursor: pointer !important;
 }
 
-.datatable-row-center datatable-row-group {
-
+.alert {
+  padding: 0 23%;
+  margin: 0;
+  margin-top: 2px;
+  cursor: pointer;
 }

@@ -5,7 +5,7 @@
     <app-settings (onSelectLang)="changeCurrency($event)"></app-settings>
   </div>
   <div id="right-layout">
-    <app-tables (onClick)=selectDetail($event)></app-tables>
+    <app-tables (onCryptoEmit)=selectDetail($event)></app-tables>
   </div>
   <div id="left-layout" class="text-white">
     <app-crypto-detail [crypto]="cryptoId"></app-crypto-detail>
