@@ -14,6 +14,7 @@ import { TablesComponent } from './home/tables/tables.component';
 import { ApiService } from './services/api.service';
 import { HomeComponent } from './home/home.component';
 import { StorageService } from './services/storage.service';
+import { SettingsComponent } from './home/settings/settings.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent }

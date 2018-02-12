@@ -10,11 +10,12 @@ export class StorageService {
       if (chrome.storage !== undefined) {
         chrome.storage.sync.get('lang', (langResult: any) => {
           console.log('langResult', langResult);
-          this._langSelect = langResult;
-          resolve(langResult);
+          let langSelected = langResult.length !== undefined ?  langResult : {'lang': 'USD'};
+          this._langSelect = langSelected;
+          resolve(langSelected);
         });
       } else {
-        resolve({'lang': 'EUR'});
+        resolve({'lang': 'USD'});
       }
     });
   }
