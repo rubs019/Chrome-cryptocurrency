@@ -8,7 +8,8 @@ declare var chrome: any;
 })
 export class CryptoDetailComponent implements OnInit {
   constructor() { }
-  ngOnInit() {}
+  ngOnInit() {
+  }
   @Input() crypto: any = null;
   goToCurrency(id) {
     chrome.tabs.create({

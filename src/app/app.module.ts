@@ -7,7 +7,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 
 import { AppComponent } from './app.component';
-import { CryptoDetailComponent } from './crypto-detail/crypto-detail.component';
+import { CryptoDetailComponent } from './home/crypto-detail/crypto-detail.component';
 
 import { TablesComponent } from './home/tables/tables.component';
 

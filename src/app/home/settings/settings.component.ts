@@ -19,11 +19,10 @@ export class SettingsComponent implements OnInit {
     'PLN', 'RUB', 'SEK', 'SGD', 'THB', 'TRY', 'TWD', 'ZAR', 'USD'].sort();
 
   ngOnInit() {
-    this.storage.langSelect.then((result: any) => this.langDefault = result.lang);
+    this.storage.langSelect.then((result: any) => this.langDefault = result);
   }
 
   onSelect(lang: any) {
-    console.log('onSelect from Settings');
     // Save the lang storage if production mode
     this.storage.langSelect = lang;
     this.onSelectLang.emit(lang.toLowerCase());

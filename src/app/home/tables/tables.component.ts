@@ -30,7 +30,7 @@ export class TablesComponent implements OnInit {
      * This function get the lang parameters from localStorage and set the settings needed.
      */
     this.storage.langSelect.then((localStorage: any) => {
-      this.currencyFormat = localStorage.lang;
+      this.currencyFormat = localStorage;
 
       this.getCrypto2(100, this._currencyFormat);
     });
@@ -40,7 +40,7 @@ export class TablesComponent implements OnInit {
   limit:int max return (def: 10)
   convert:string type of conversion (def: 'EUR')*/
   public getCrypto2(limit: number, convert: string) {
-    this.price_currency = 'price_' + this._currencyFormat.toLowerCase();
+    this.price_currency = 'price_' + this.currencyFormat.toLowerCase();
     this.loadingIndicator = true;
     this.api.get(convert, limit)
       .subscribe((cryptos: any) => {
