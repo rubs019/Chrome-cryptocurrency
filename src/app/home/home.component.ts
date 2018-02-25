@@ -17,7 +17,7 @@ export class HomeComponent implements AfterViewInit {
   }
 
   changeCurrency(event) {
-    this.TableComponent.currencyFormat = event;
+    this.TableComponent.currencyFormat = { lang: event };
     this.TableComponent.getCrypto2(100, event);
   }
 

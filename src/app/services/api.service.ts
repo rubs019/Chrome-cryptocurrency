@@ -8,8 +8,8 @@ export class ApiService {
 
   constructor(private http: HttpClient) { }
 
-  get(convert: String = 'USD', limit: Number = 100) {
-    return this.http.get(this.apiUrl + '?limit=' + limit + '&convert=' + convert);
+  get(convert: any = {lang : 'USD'}, limit: Number = 100) {
+    return this.http.get(this.apiUrl + '?limit=' + limit + '&convert=' + convert.lang);
   }
 
 }

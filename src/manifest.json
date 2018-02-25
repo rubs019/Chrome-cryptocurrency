@@ -3,7 +3,7 @@
 
   "name": "Live Crypto Currency",
   "description": "Live crypto currency extension for Chrome.",
-  "version": "0.0.2.5.1",
+  "version": "0.0.3.0",
   "author": "Ruben DESERT",
 
   "browser_action": {

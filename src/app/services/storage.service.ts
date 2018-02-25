@@ -14,9 +14,6 @@ export class StorageService {
       /** This condition is used when we are in production */
       if (chrome.storage !== undefined) {
         chrome.storage.sync.get('lang', (langResult: any) => {
-          console.log('START GET -------------');
-          console.log(langResult);
-          console.log('END GET -------------');
           const langSelected = langResult.lang.length !== undefined ?  langResult.lang : this.defaultCurrency;
           this._langSelect = langSelected;
           resolve(langSelected);
@@ -31,9 +28,6 @@ export class StorageService {
   /** This function set the currency selected by the user */
   set langSelect(value: Promise<any>) {
     if (chrome.storage !== undefined) {
-      console.log('START SET -------------');
-      console.log(value);
-      console.log('END SET -------------');
       chrome.storage.sync.set({'lang' : value});
     }
     this._langSelect = value;
