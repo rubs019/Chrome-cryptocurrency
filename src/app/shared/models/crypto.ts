@@ -23,7 +23,6 @@ export class Crypto {
   private _total_supply: string;
 
   constructor(metadata) {
-    console.log('metadata', metadata)
     const lang = metadata.currency.lang.toUpperCase()
     this.available_supply = metadata.circulating_supply;
     this.currency = metadata.currency;
