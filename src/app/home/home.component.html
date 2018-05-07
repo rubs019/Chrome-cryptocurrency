@@ -1,8 +1,12 @@
 <div id="container">
   <div id="header" class="text-center">
-    <h1>ChromeCrypto</h1>
-    <p>Get instant-realtime crypto value</p>
-    <app-settings (onSelectLang)="changeCurrency($event)"></app-settings>
+    <div>
+      <h1>{{ title }}</h1>
+      <p>{{ subtitle }}</p>
+    </div>
+    <div>
+      <app-settings (onSelectLang)="changeCurrency($event)"></app-settings>
+    </div>
   </div>
   <div id="right-layout">
     <app-tables (onCryptoEmit)=selectDetail($event)></app-tables>

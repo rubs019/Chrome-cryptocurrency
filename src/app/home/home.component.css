@@ -4,6 +4,7 @@
   height: 100%;
 }
 #header {
+  display: flex;
   width: 380px;
   height: 20%;
   padding: 10px;

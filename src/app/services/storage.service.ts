@@ -14,7 +14,8 @@ export class StorageService {
       /** This condition is used when we are in production */
       if (chrome.storage !== undefined) {
         chrome.storage.sync.get('lang', (langResult: any) => {
-          const langSelected = langResult.lang.length !== undefined ?  langResult.lang : this.defaultCurrency;
+          console.log('type of langResult', typeof(langResult));
+          const langSelected = langResult.lang !== undefined ?  langResult.lang : this.defaultCurrency;
           this._langSelect = langSelected;
           resolve(langSelected);
         });

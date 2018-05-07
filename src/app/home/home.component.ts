@@ -11,6 +11,8 @@ export class HomeComponent implements AfterViewInit {
   @ViewChild(TablesComponent) TableComponent: TablesComponent;
 
   cryptoId = null;
+  title = 'Live Crypto Currency';
+  subtitle = 'Get instant-realtime crypto value';
 
   selectDetail(event) {
     this.cryptoId = event;
