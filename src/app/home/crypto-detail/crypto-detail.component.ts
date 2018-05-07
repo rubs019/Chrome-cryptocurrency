@@ -11,9 +11,10 @@ export class CryptoDetailComponent implements OnInit {
   ngOnInit() {
   }
   @Input() crypto: any = null;
-  goToCurrency(id) {
+  goToCurrency(slug) {
+    const url = 'https://coinmarketcap.com/currencies/' + slug
     chrome.tabs.create({
-      url: 'https://coinmarketcap.com/currencies/' + id
+      url
     });
   }
 

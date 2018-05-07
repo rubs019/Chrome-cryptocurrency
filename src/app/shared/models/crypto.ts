@@ -20,12 +20,14 @@ export class Crypto {
   price_usd: string;
   rank: string;
   symbol: string;
+  website_slug: string;
   private _total_supply: string;
 
   constructor(metadata) {
     const lang = metadata.currency.lang.toUpperCase()
     this.available_supply = metadata.circulating_supply;
     this.currency = metadata.currency;
+    this.website_slug = metadata.website_slug;
     this.id = metadata.id;
     this.last_updated = metadata.last_updated;
     this.market_cap_usd = metadata.market_cap_usd;
