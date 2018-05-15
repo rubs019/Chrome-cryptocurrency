@@ -44,6 +44,6 @@ export class Crypto {
   }
 
   public getImage() {
-    return '../../assets/icons/' + this.symbol.toLowerCase() + '.png';
+    return `https://cryptocurrency-net.herokuapp.com/icons/${this.symbol.toLowerCase()}`;
   }
 }
