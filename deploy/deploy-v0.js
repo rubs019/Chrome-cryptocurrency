@@ -13,9 +13,7 @@ module.exports = () => {
       .then((newVersion) => updateManifest(newVersion))
       .then((manifestVersion) => resolve(manifestVersion))
       .catch((err) => {
-        console.log('err', err)
-        reject(err)
-        return err
+        return reject(err)
       })
   })
 }
@@ -30,7 +28,7 @@ function findManifest(path){
 			if (!err) {
 				return resolve(pathFile)
 			}
-			return reject('Aucun manifest.json trouvé')
+			return reject(new Error('Aucun manifest.json trouvé'))
 		})
 	})
 }
@@ -97,7 +95,7 @@ function updateVersion(version){
 		  	rl.close();
 
 		  	const confirmQuestion = readline.createInterface({
-				input: process.stdin,
+				  input: process.stdin,
 			  	output: process.stdout
 			})
 
@@ -106,17 +104,16 @@ function updateVersion(version){
 		  			case 'y':
 		  			case '':
 			  			tempVersion = answer
-						resolve(tempVersion)
+						  resolve(tempVersion)
 			  			break
 				  	case 'n':
-				  		reject('Update version failed')
+				  		reject(new Error('Update version annulé par l\'utilisateur'))
 				  		break
 				  	default:
 				  		console.log('Veuillez selectionner (y/n)')
 				  		break
 		    	}
 				confirmQuestion.close()
-				resolve(tempVersion)
 			})
 		});
 
